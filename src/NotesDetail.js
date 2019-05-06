@@ -48,9 +48,13 @@ export default class NotesDetail extends Component {
             }
             <br />
             <button onClick={this._toggleIsEditing}>Toggle</button>
+            <button onClick={this._saveDraft}>Save</button>
         </div>
       );
 
+  }
+  _saveDraft = () => {
+      this.props.handleSave(this.state.id, this.state.draftText);
   }
   _changeDraftText = (newText) => {
     this.setState({
