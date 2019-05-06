@@ -14,13 +14,28 @@ export default class NotesDetail extends Component {
       this.state = {
           isEditing: false,
           draftText: props.note.text,
+          id: props.note.id,
       };
+  }
+  static getDerivedStateFromProps(props, state) {
+    //there is no 'this' in this static function so we receive them as arguments
+
+    //must return an object that describes any modifications to state.
+    if (props.note.id !== state.id) {
+        return {
+            id: props.note.id,
+            draftText: props.note.text,
+        };
+
+    } else {
+        return null;
+    }
   }
   render() {
       //declares the class name and note variables
       //and assigns them to the property this.props
       //where the name matches.
-      const { note } = this.props;
+    //   const { note } = this.props;
       const { isEditing, draftText } = this.state;
       return (
         <div>
