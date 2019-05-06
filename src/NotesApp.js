@@ -7,6 +7,7 @@ export default class NotesApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        selectedNote: '1001',
         notes: [
             {
                 id: '1001',
@@ -27,16 +28,26 @@ export default class NotesApp extends Component {
     }
   }
   render() {
+    const theNote = this.state.notes.find(note => this.state.selectedNote === note.id);
     return (
       <div className={styles.app}>
         <div className={styles.list}>
-            <NotesList notes={this.state.notes} />
+            <NotesList notes={this.state.notes}
+                       handleSelection={this._selectNote}
+                        />
         </div>
         <div className={styles.detail}>
-            <NotesDetail />
+            <NotesDetail 
+                        note={theNote}
+                        />
         </div>
       </div>
     )
+  }
+  _selectNote = (id) => {
+    this.setState({
+        selectedNote: id
+    })
   }
 }
         
