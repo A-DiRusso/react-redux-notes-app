@@ -14,6 +14,7 @@ function NotesListItem({ id, text, handleClick }) {
             >
             {text}
             </a></li>
+        
     );
 }
 
