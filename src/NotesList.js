@@ -1,9 +1,10 @@
 import React from 'react'
+import styles from './NotesList.module.css';
 
 export default function NotesList(props) {
   return (
-    <ul>
-      <li>this</li>
+    <ul className={styles.list}>
+      <li>This</li>
       <li>is</li>
       <li>the</li>
       <li>Notes</li>

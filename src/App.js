@@ -5,12 +5,12 @@ import NotesApp from './NotesApp';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <NotesApp />
-      </header>
-    </div>
-  );
+    <NotesApp />
+);
 }
 
 export default App;
+    
+      
+    
+   
