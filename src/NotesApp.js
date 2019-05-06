@@ -49,5 +49,47 @@ export default class NotesApp extends Component {
         selectedNote: id
     })
   }
+  _updateNote = (idToUpdate, newText) => {
+    // we can't mutate state we need to create a new array with all the existing
+    //notes, but we wat to use the newText for the note with id === idToUpdate
+    
+    //1st using map
+    const updatedNotes1 = this.state.notes.map(note => {
+        if(note.id === idToUpdate) {
+            return {
+                ...note,            //spread out all the existing key/value pairs
+                text: newText,      // overwrite just the text property for that id
+            };
+        } else {
+            return {
+                ...note
+            };
+        }
+    });
+    this.setState({
+        notes: updatedNotes1,
+    });
+    //2nd using Filter and find
+    // const updatedNotes2 = this.state.notes.filter(note => {
+    //     return note.id !== idToUpdate;
+    // });
+    // const theNoteToUpdate = this.state.notes.find(note => note.id === idToUpdate);
+    // this.setState({
+    //     notes: [
+    //         ...updatedNotes2,
+    //         {
+    //             ...theNoteToUpdate,
+    //             text: newText,
+    //         }
+    //     ]
+    // });
+    //2-b using concat()
+    // this.setState({
+    //     notes: updatedNotes2.concat({
+    //         ...theNoteToUpdate,
+    //         text: newText,
+    //     }),
+    // });
+  }
 }
         
