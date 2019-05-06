@@ -1,14 +1,17 @@
 import React from 'react'
 import styles from './NotesList.module.css';
 
-export default function NotesList(props) {
+function NotesListItem({ text }) {
+    return (
+        <li>{text}</li>
+    );
+}
+
+export default function NotesList({ notes, className }) {
+  const items = notes.map((note) => <NotesListItem text={note.title}/>) 
   return (
     <ul className={styles.list}>
-      <li>This</li>
-      <li>is</li>
-      <li>the</li>
-      <li>Notes</li>
-      <li>List!</li>    
+      {items}
     </ul>
   );
 }

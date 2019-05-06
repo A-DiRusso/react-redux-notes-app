@@ -1,4 +1,8 @@
-
+html {
+    background-color: #282c34;
+    color: white;
+    font-size: 1em;
+}
 .app {
     display: flex;
     flex-direction: row;
